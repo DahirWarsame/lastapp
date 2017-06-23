@@ -23,38 +23,29 @@ function initPage() {
 //TODO : Labels, update, insert, delete
 
 function loadCountries() {
-    $.ajax({
-        url: "/restservices/countries",
-        type: "GET",
-        contentType: "application/json",
-        success: function (data) {
-            var countryTable = $("#countryTable");
-            $.each(data, function (index, object) {
-                var String =
-                    "<tr id='row" +
-                    index +
-                    "'>" +
-                    "<td class='code_row'>" +
-                    object.code +
-                    "</td>" +
-                    "<td>" +
-                    object.name +
-                    "</td>" +
-                    "<td>" +
-                    object.capital +
-                    "</td>" +
-                    "<td>" +
-                    object.region +
-                    "</td>" +
-                    "<td class='delete'>&times;</td>" +
-                    "</tr>";
-                countryTable.append(String);
-            });
-        },
-        beforeSend: function (xhr) {
-            var token = window.sessionStorage.getItem("sessionToken");
-            xhr.setRequestHeader("Authorization", "Bearer " + token);
-        }
+    $.get("../restservices/countries", function (data) {
+        var countryTable = $("#countryTable");
+        $.each(data, function (index, object) {
+            var String =
+                "<tr id='row" +
+                index +
+                "'>" +
+                "<td class='code_row'>" +
+                object.code +
+                "</td>" +
+                "<td>" +
+                object.name +
+                "</td>" +
+                "<td>" +
+                object.capital +
+                "</td>" +
+                "<td>" +
+                object.region +
+                "</td>" +
+                "<td class='delete'>&times;</td>" +
+                "</tr>";
+            countryTable.append(String);
+        });
     });
 }
 

@@ -19,7 +19,6 @@ public class WorldResource {
     private WorldService service = ServiceProvider.getWorldService();
 
     @GET
-    @RolesAllowed("admin")
     @Produces(MediaType.APPLICATION_JSON)
     public String getCountries() {
         JsonArrayBuilder jab = Json.createArrayBuilder();

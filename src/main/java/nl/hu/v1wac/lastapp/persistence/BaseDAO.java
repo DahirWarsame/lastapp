@@ -1,4 +1,4 @@
-package nl.hu.v1wac.firstapp.persistence;
+package nl.hu.v1wac.lastapp.persistence;
 import java.net.URI;
 import java.sql.Connection;
 import javax.naming.InitialContext;
